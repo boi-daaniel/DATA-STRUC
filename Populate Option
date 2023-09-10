@@ -4,7 +4,7 @@ class TestClass {
     public static void main(String[] args) {
         final int MAXSIZE = 10;
         int[] myArray = new int[MAXSIZE];
-        Scanner scanner = new Scanner(System.in);
+        Scanner Input = new Scanner(System.in);
 
         ArrayOperations Ao = new ArrayOperations(MAXSIZE);
 
@@ -23,7 +23,7 @@ class TestClass {
             System.out.println("11. Quit");
 
             System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
+            int choice = Input.nextInt();
 
             switch (choice) {
                 case 1:
@@ -40,29 +40,29 @@ class TestClass {
                     break;
                 case 5:
                     System.out.print("Enter element to insert at the beginning: ");
-                    int element = scanner.nextInt();
+                    int element = Input.nextInt();
                     myArray = Ao.insertBeginning(element, myArray);
                     break;
                 case 6:
                     System.out.print("Enter element to insert: ");
-                    element = scanner.nextInt();
+                    element = Input.nextInt();
                     System.out.print("Enter position to insert at: ");
-                    int position = scanner.nextInt();
+                    int position = Input.nextInt();
                     myArray = Ao.insertMiddle(element, position, myArray);
                     break;
                 case 7:
                     System.out.print("Enter element to insert at the end: ");
-                    element = scanner.nextInt();
+                    element = Input.nextInt();
                     myArray = Ao.insertEnd(element, myArray);
                     break;
                 case 8:
                     System.out.print("Enter element to remove: ");
-                    element = scanner.nextInt();
+                    element = Input.nextInt();
                     myArray = Ao.removeItem(element, myArray);
                     break;
                 case 9:
                     System.out.print("Enter element to search: ");
-                    element = scanner.nextInt();
+                    element = Input.nextInt();
                     int searchResult = Ao.search(element, myArray);
                     if (searchResult != -1) {
                         System.out.println("Found " + element + " at index " + searchResult);
@@ -77,7 +77,7 @@ class TestClass {
                     break;
                 case 11:
                     System.out.println("Quitting the program.");
-                    scanner.close();
+                    Input.close();
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice. Please enter a valid option.");
