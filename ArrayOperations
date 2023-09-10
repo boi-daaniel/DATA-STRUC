@@ -18,16 +18,16 @@ class ArrayOperations {
 
     public void print(int[] myArray) {
         System.out.println("Array Contents");
-        for (int i = 0; i < myArray.length; i++) {
-            System.out.print(" " + myArray[i]);
+        for (int j : myArray) {
+            System.out.print(" " + j);
         }
     }
 
     public int getMin(int[] myArray) {
         int min = myArray[0];
-        for (int i = 0; i < myArray.length; i++) {
-            if (myArray[i] < min) {
-                min = myArray[i];
+        for (int j : myArray) {
+            if (j < min) {
+                min = j;
             }
         }
         return min;
@@ -35,9 +35,9 @@ class ArrayOperations {
 
     public int getMax(int[] myArray) {
         int max = myArray[0];
-        for (int i = 0; i < myArray.length; i++) {
-            if (myArray[i] > max) {
-                max = myArray[i];
+        for (int j : myArray) {
+            if (j > max) {
+                max = j;
             }
         }
         return max;
