@@ -2,11 +2,12 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.*;
 
+
 public class Students {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         ArrayList<String> studentList = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-
+        
         while (true) {
             System.out.println("\nPlease Choose:");
             System.out.println("1. Enroll");
@@ -15,21 +16,21 @@ public class Students {
             System.out.println("4. Sort");
             System.out.println("5. Search");
             System.out.println("6. Exit");
+            
             System.out.print("Enter your choice: ");
-
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = input.nextInt();
+            input.nextLine();
 
             switch (choice) {
                 case 1:
                     System.out.print("Enter student's name to enroll: ");
-                    String enrollName = scanner.nextLine();
-                    enrollStudent(studentList, enrollName);
+                    String enroll = input.nextLine();
+                    enrollStudent(studentList, enroll);
                     break;
                 case 2:
                     System.out.print("Enter student's name to un-enroll: ");
-                    String unenrollName = scanner.nextLine();
-                    unenrollStudent(studentList, unenrollName);
+                    String unenroll= input.nextLine();
+                    unenrollStudent(studentList, unenroll);
                     break;
                 case 3:
                     printStudentList(studentList);
@@ -39,12 +40,12 @@ public class Students {
                     break;
                 case 5:
                     System.out.print("Enter student's name to search: ");
-                    String searchName = scanner.nextLine();
+                    String searchName = input.nextLine();
                     searchStudent(studentList, searchName);
                     break;
                 case 6:
                     System.out.println("Exiting the program.");
-                    scanner.close();
+                    input.close();
                     System.exit(0);
                     break;
                 default:
