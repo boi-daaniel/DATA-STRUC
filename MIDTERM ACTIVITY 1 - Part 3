@@ -15,8 +15,8 @@ class TestLinkedList {
          System.out.println("6. Print backward");
          System.out.println("7. Remove from head");
          System.out.println("8. Remove from tail");
-         System.out.println("9.-");
-         System.out.println("10.-");
+         System.out.println("9. Remove at");
+         System.out.println("10.Insert At");
          System.out.println("11. Quit");
          
          
@@ -79,6 +79,13 @@ class TestLinkedList {
                   System.out.println("Tail removed.");
                   list.removeTail();
                }
+               break;
+            case 10               
+               System.out.print("Enter the value to insert: ");
+               int valueToInsert = input.nextInt();
+               System.out.print("Enter the position to insert at: ");
+               int positionToInsert = input.nextInt();
+               list.insertAtPosition(valueToInsert, positionToInsert);
                break;
             case 11:
                System.out.println("Exiting program ...");
