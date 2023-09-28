@@ -4,33 +4,89 @@ class TestLinkedList {
    public static void main(String[] args) {
       LinkedList list = new LinkedList();
       Scanner input = new Scanner(System.in);
-      
-      list.addToHead(5);
-      list.addToHead(10);
-      list.addToHead(15);
-      list.addToHead(20);
-      list.addToTail(100);
-      list.printForward();
-      list.printBackward();
-      
-      
-  
+    
       while(true) {
-      
-         System.out.print("Enter Choice: ");
+         System.out.println("\n\tMenu");
+         System.out.println("1. Add to head");
+         System.out.println("2. Add to tail");
+         System.out.println("3. Print head");
+         System.out.println("4. print tail");
+         System.out.println("5. Print forward");
+         System.out.println("6. Print backward");
+         System.out.println("7. Remove from head");
+         System.out.println("8. Remove from tail");
+         System.out.println("9.-");
+         System.out.println("10.-");
+         System.out.println("11. Quit");
+         
+         
+         System.out.print("\nEnter Choice: ");
          int choice = input.nextInt();
          
          switch(choice) {
             case 1:
                System.out.print("Add to head: ");
-               list.addToHead();
+               int headValue = input.nextInt(); 
+               list.addToHead(headValue);
                break;
             case 2:
-               System.out.print("Add to tail:");
-               list.addToTail();
+               System.out.print("Add to tail: ");
+               int tailValue = input.nextInt(); 
+               list.addToTail(tailValue);
                break;
             case 3:
-              break; 
+               if (list.isEmpty()) {
+                  System.out.println("List is empty.");
+               } else {
+                  System.out.println("Head value: " + list.head.item);
+               }
+               break;
+            case 4:
+               if (list.isEmpty()) {
+                  System.out.println("List is empty.");
+               } else {
+                  System.out.println("Tail value: " + list.tail.item);
+               }
+               break;
+            case 5:
+               if (list.isEmpty()) {
+                  System.out.println("List is empty.");
+               } else {
+                  System.out.println("Printing Forward list:");
+                  list.printForward();
+               }
+               break;
+            case 6:
+               if (list.isEmpty()) {
+                  System.out.println("List is empty.");
+               } else {
+                  System.out.println("Printing Backward list:");
+                  list.printBackward();
+               }
+               break;
+            case 7:
+               if(list.isEmpty()){
+                  System.out.println("List is empty cannot remove head");
+               } else {
+                  System.out.println("Head removed.");
+                  list.removeHead();
+               } 
+               break;
+            case 8:
+               if(list.isEmpty()) {
+                  System.out.println("List is empty cannot remove tail");
+               } else {
+                  System.out.println("Tail removed.");
+                  list.removeTail();
+               }
+               break;
+            case 11:
+               System.out.println("Exiting program ...");
+               input.close();
+               System.exit(0);
+               break;
+            default:
+               System.out.println("Invalid choice");
          }
       }
       
