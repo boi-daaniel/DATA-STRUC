@@ -78,6 +78,47 @@ class LinkedList {
          }
       }
    }
+public void insertAtPosition(int item, int position) {
+   if (position < 0) {
+      System.out.println("Invalid position. Position must be non-negative.");
+      return;
+   }
+   
+   if (position == 0) {
+      // Insert at the head.
+      addToHead(item);
+      return;
+   }
+   
+   Node newNode = new Node(null, item, null);
+   Node current = head;
+   int currentPosition = 0;
+   
+   while (current != null) {
+      if (currentPosition == position - 1) {
+         // Insert the new node after 'current'.
+         newNode.previous = current;
+         newNode.next = current.next;
+         
+         if (current == tail) {
+            // If 'current' is the tail, update 'tail'.
+            tail = newNode;
+         } else {
+            // If 'current' is not the tail, update the next node's previous reference.
+            current.next.previous = newNode;
+         }
+         
+         current.next = newNode;
+         return;
+      }
+      
+      currentPosition++;
+      current = current.next;
+   }
+   
+   // If the specified position is out of range, you can handle it here.
+   System.out.println("Invalid position. Position is out of range.");
+}
 
    
 }
