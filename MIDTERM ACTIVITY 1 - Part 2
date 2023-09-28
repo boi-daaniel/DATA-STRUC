@@ -3,59 +3,81 @@ class LinkedList {
    Node tail;
    
    public LinkedList() {
-      head=null;
-      tail=null;
+      head = null;
+      tail = null;
+   }
+   
+   public LinkedList(Node head, Node tail) {
+      this.head = head;
+      this.tail = tail;
    }
    
    public boolean isEmpty() {
-      if(head==null && tail==null)
-         return true;
-      else
-         return false;
+      return (head == null && tail == null);
    }
    
    public void addToHead(int item) {
-      if(isEmpty()) {
+      if (isEmpty()) {
          Node newNode = new Node(null, item, null);
-         head=tail=newNode;
-      } else{
-            Node newNode = new Node(null, item, head);
-            head=newNode;
-            head.next.previous=head;
+         head = tail = newNode;
+      } else {
+         Node newNode = new Node(null, item, head);
+         head = newNode;
+         head.next.previous = head;
       }
    }
    
    public void addToTail(int item) {
-      if(isEmpty()) {
+      if (isEmpty()) {
          Node newNode = new Node(null, item, null);
-         head=tail=newNode;
-      } else{
-            Node newNode = new Node(tail, item, null);
-            tail=newNode;
-            tail.previous.next=tail;
+         head = tail = newNode;
+      } else {
+         Node newNode = new Node(tail, item, null);
+         tail = newNode;
+         tail.previous.next = tail;
       }
    }
    
    public void printForward() {
-      System.out.println("Forward:");
-      Node current;
-      current=head;
-      while (current!=null) {
+      Node current = head;
+      while (current != null) {
          System.out.println(current.item);
-         current=current.next;
+         current = current.next;
       }
    }
    
-    public void printBackward() {
-      System.out.println("Backward:");
-      Node current;
-      current=tail;
-      while (current!=null) {
+   public void printBackward() {      
+      Node current = tail;
+      while (current != null) {
          System.out.println(current.item);
-         current=current.previous;
+         current = current.previous;
       }
    }
    
    
+   // new methods for remove head & tail
+   public void removeHead() {
+      if (!isEmpty()) {
+         if (head == tail) {
+            head = tail = null;
+         } else {
+            head = head.next;
+            head.previous = null;
+       }
+      }
+   }
+   
+   
+   public void removeTail() {
+      if (!isEmpty()) {
+         if (head == tail) {
+            head = tail = null;
+         } else {
+            tail = tail.previous;
+            tail.next = null;
+         }
+      }
+   }
+
    
 }
