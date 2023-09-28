@@ -22,10 +22,15 @@ class TestLinkedList {
          
          switch(choice) {
             case 1:
-               
+               System.out.print("Add to head: ");
+               list.addToHead();
                break;
             case 2:
-            
+               System.out.print("Add to tail:");
+               list.addToTail();
+               break;
+            case 3:
+              break; 
          }
       }
       
