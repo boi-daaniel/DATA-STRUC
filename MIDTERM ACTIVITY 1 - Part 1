@@ -8,8 +8,4 @@ class Node {
       this.item=item;
       this.next=next;
    }
-   
-   public static add(){
-      
-   }
 }
