@@ -16,7 +16,7 @@ class TestLinkedList {
          System.out.println("7. Remove from head");
          System.out.println("8. Remove from tail");
          System.out.println("9. Remove at");
-         System.out.println("10.Insert At");
+         System.out.println("10.Insert at");
          System.out.println("11. Quit");
          
          
