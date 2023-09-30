@@ -80,13 +80,10 @@ class TestLinkedList {
                   list.removeTail();
                }
                break;
-            case 10               
-               System.out.print("Enter the value to insert: ");
-               int valueToInsert = input.nextInt();
-               System.out.print("Enter the position to insert at: ");
-               int positionToInsert = input.nextInt();
-               list.insertAtPosition(valueToInsert, positionToInsert);
-               break;
+            //case 9:
+              // break;
+            //case 10               
+              // break;
             case 11:
                System.out.println("Exiting program ...");
                input.close();
