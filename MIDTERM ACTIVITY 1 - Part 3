@@ -91,8 +91,8 @@ class TestLinkedList {
                System.out.print("Enter the value to be inserted: ");
                int insertValue = input.nextInt();
                System.out.print("Enter the value after which to insert: ");
-               int searchValue = input.nextInt();
-               list.insertNodeAfter(searchValue, insertValue);         
+               int valueAfter = input.nextInt();
+               list.insertNodeAfter(valueAfter, insertValue);         
                break;
             case 11:
                System.out.println("Exiting program ...");
@@ -103,7 +103,6 @@ class TestLinkedList {
                System.out.println("Invalid choice");
          }
       }
-      
-      
+          
    }//MAIN
 }//CLASS
