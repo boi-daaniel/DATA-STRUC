@@ -3,59 +3,61 @@ class LinkedList {
    Node tail;
    
    public LinkedList() {
-      head = null;
-      tail = null;
-   }
-   
-   public LinkedList(Node head, Node tail) {
-      this.head = head;
-      this.tail = tail;
+      head=null;
+      tail=null;
    }
    
    public boolean isEmpty() {
-      return (head == null && tail == null);
+      if(head==null && tail==null)
+         return true;
+      else
+         return false;
    }
    
    public void addToHead(int item) {
-      if (isEmpty()) {
+      if(isEmpty()) {
          Node newNode = new Node(null, item, null);
-         head = tail = newNode;
-      } else {
-         Node newNode = new Node(null, item, head);
-         head = newNode;
-         head.next.previous = head;
+         head=tail=newNode;
+      } else{
+            Node newNode = new Node(null, item, head);
+            head=newNode;
+            head.next.previous=head;
       }
    }
    
    public void addToTail(int item) {
-      if (isEmpty()) {
+      if(isEmpty()) {
          Node newNode = new Node(null, item, null);
-         head = tail = newNode;
-      } else {
-         Node newNode = new Node(tail, item, null);
-         tail = newNode;
-         tail.previous.next = tail;
+         head=tail=newNode;
+      } else{
+            Node newNode = new Node(tail, item, null);
+            tail = newNode;
+            tail.previous.next = tail;
+
       }
    }
    
    public void printForward() {
-      Node current = head;
-      while (current != null) {
+      System.out.println("Forward:");
+      Node current;
+      current=head;
+      while (current!=null) {
          System.out.println(current.item);
-         current = current.next;
+         current=current.next;
       }
    }
    
-   public void printBackward() {      
-      Node current = tail;
-      while (current != null) {
+    public void printBackward() {
+      System.out.println("Backward:");
+      Node current;
+      current=tail;
+      while (current!=null) {
          System.out.println(current.item);
-         current = current.previous;
+         current=current.previous;
       }
    }
    
-   
-   // new methods for remove head & tail
+   // Remove head
    public void removeHead() {
       if (!isEmpty()) {
          if (head == tail) {
@@ -66,8 +68,8 @@ class LinkedList {
        }
       }
    }
-   
-   
+    
+   // Remova tail
    public void removeTail() {
       if (!isEmpty()) {
          if (head == tail) {
@@ -79,4 +81,59 @@ class LinkedList {
       }
    }
    
-}
+   // Remove at
+   public void removeAt(int position) {
+        if (position < 0 || position >= size()) {
+            System.out.println("Invalid position.");
+            return;
+        }
+
+        if (position == 0) {
+            removeHead();
+        } else if (position == size() - 1) {
+            removeTail();
+        } else {
+            Node current = head;
+            for (int i = 0; i < position; i++) {
+                current = current.next;
+            }
+            current.previous.next = current.next;
+            current.next.previous = current.previous;
+        }
+        System.out.println("Node at position " + position + " removed.");
+    }
+    
+    public int size() {
+        int count = 0;
+        Node current = head;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+   
+   // Insert method
+   public void insertNodeAfter(int searchItem, int itemToBeInserted) {
+        Node newNode = new Node(null, itemToBeInserted, null);
+        Node temp = head;
+
+        while (temp != null && temp.item != searchItem) {
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            System.out.println("item not found.");
+        } else {
+            newNode.next = temp.next;
+            temp.next = newNode;
+            newNode.previous = temp;
+            if (newNode.next != null) {
+                newNode.next.previous = newNode;
+            } else {
+                tail = newNode;
+              }
+          }       
+    }
+        
+}// Class
