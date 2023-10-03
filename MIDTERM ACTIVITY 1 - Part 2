@@ -83,48 +83,53 @@ class LinkedList {
    
    // Remove at
    public void removeAt(int position) {
-        if (position < 0 || position >= size()) {
-            System.out.println("Invalid position.");
-            return;
-        }
+    if (position < 0) {
+        System.out.println("Invalid position.");
+        return;
+    }
 
-        if (position == 0) {
-            removeHead();
-        } else if (position == size() - 1) {
-            removeTail();
-        } else {
-            Node current = head;
-            for (int i = 0; i < position; i++) {
-                current = current.next;
-            }
-            current.previous.next = current.next;
+    if (position == 0) {
+        removeHead();
+        System.out.println("Node at position 0 removed.");
+        return;
+    }
+
+    Node current = head;
+    int currentPosition = 0;
+
+    while (current != null && currentPosition < position) {
+        current = current.next;
+        currentPosition++;
+    }
+
+    if (current == null) {
+        System.out.println("Invalid position.");
+    } else {
+        current.previous.next = current.next;
+        if (current.next != null) {
             current.next.previous = current.previous;
+        } else {
+            tail = current.previous;
         }
         System.out.println("Node at position " + position + " removed.");
-    }
+      }
+   }
     
-    public int size() {
-        int count = 0;
-        Node current = head;
-        while (current != null) {
-            count++;
-            current = current.next;
-        }
-        return count;
-    }
+    
    
    // Insert method
-   public void insertNodeAfter(int searchItem, int itemToBeInserted) {
-        Node newNode = new Node(null, itemToBeInserted, null);
-        Node temp = head;
-
-        while (temp != null && temp.item != searchItem) {
+   public void insertNodeAfter(int valueAfter, int insertValue) {                     
+        Node newNode = new Node(null, insertValue, null);
+        Node temp = head; 
+               
+        while (temp != null && temp.item != valueAfter) {
             temp = temp.next;
         }
 
         if (temp == null) {
             System.out.println("item not found.");
-        } else {
+        } 
+        else {
             newNode.next = temp.next;
             temp.next = newNode;
             newNode.previous = temp;
@@ -133,7 +138,7 @@ class LinkedList {
             } else {
                 tail = newNode;
               }
-          }       
+        }             
     }
         
 }// Class
