@@ -6,17 +6,17 @@ class TestLinkedList {
       Scanner input = new Scanner(System.in);
     
       while(true) {
-         System.out.println("\n\tMenu");
-         System.out.println("1. Add to head");
-         System.out.println("2. Add to tail");
-         System.out.println("3. Print head");
-         System.out.println("4. print tail");
-         System.out.println("5. Print forward");
-         System.out.println("6. Print backward");
-         System.out.println("7. Remove from head");
-         System.out.println("8. Remove from tail");
-         System.out.println("9. Remove at");
-         System.out.println("10.Insert at");
+         System.out.println("\n\t MENU");
+         System.out.println("1. Add to Head");
+         System.out.println("2. Add to Tail");
+         System.out.println("3. Print Head");
+         System.out.println("4. print Tail");
+         System.out.println("5. Print Forward");
+         System.out.println("6. Print Backward");
+         System.out.println("7. Remove from Head");
+         System.out.println("8. Remove from Tail");
+         System.out.println("9. Remove At");
+         System.out.println("10. Insert At");
          System.out.println("11. Quit");
          
          
@@ -28,11 +28,13 @@ class TestLinkedList {
                System.out.print("Add to head: ");
                int headValue = input.nextInt(); 
                list.addToHead(headValue);
+               System.out.println("Head Added.");
                break;
             case 2:
                System.out.print("Add to tail: ");
                int tailValue = input.nextInt(); 
                list.addToTail(tailValue);
+               System.out.println("Tail Added.");
                break;
             case 3:
                if (list.isEmpty()) {
@@ -80,10 +82,18 @@ class TestLinkedList {
                   list.removeTail();
                }
                break;
-            //case 9:
-              // break;
-            //case 10               
-              // break;
+            case 9:
+               System.out.print("Enter position to remove: ");
+               int removePosition = input.nextInt();
+               list.removeAt(removePosition);
+               break;
+            case 10:
+               System.out.print("Enter the value to be inserted: ");
+               int insertValue = input.nextInt();
+               System.out.print("Enter the value after which to insert: ");
+               int searchValue = input.nextInt();
+               list.insertNodeAfter(searchValue, insertValue);         
+               break;
             case 11:
                System.out.println("Exiting program ...");
                input.close();
