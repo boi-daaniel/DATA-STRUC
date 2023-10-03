@@ -101,6 +101,7 @@ class TestLinkedList {
                break;
             default:
                System.out.println("Invalid choice");
+               break;
          }
       }
           
