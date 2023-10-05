@@ -15,8 +15,8 @@ class TestLinkedList {
          System.out.println("6. Print Backward");
          System.out.println("7. Remove from Head");
          System.out.println("8. Remove from Tail");
-         System.out.println("9. Remove At");
-         System.out.println("10. Insert At");
+         System.out.println("9. Insert At");
+         System.out.println("10. Remove Node at Position");
          System.out.println("11. Quit");
          
          
@@ -83,16 +83,16 @@ class TestLinkedList {
                }
                break;
             case 9:
-               System.out.print("Enter position to remove: ");
-               int removePosition = input.nextInt();
-               list.removeAt(removePosition);
-               break;
-            case 10:
                System.out.print("Enter the value to be inserted: ");
                int insertValue = input.nextInt();
                System.out.print("Enter the value after which to insert: ");
-               int valueAfter = input.nextInt();
-               list.insertNodeAfter(valueAfter, insertValue);         
+               int searchValue = input.nextInt();
+               list.insertNodeAfter(searchValue, insertValue);
+               break;
+            case 10:               
+               System.out.print("Enter Position to remove: ");
+               int removePosition = input.nextInt();
+               list.removeAt(removePosition);         
                break;
             case 11:
                System.out.println("Exiting program ...");
@@ -101,10 +101,9 @@ class TestLinkedList {
                break;
             default:
                System.out.println("Invalid choice");
-               break;
          }
       }
-          
+      
+      
    }//MAIN
 }//CLASS
-
