@@ -81,39 +81,37 @@ class LinkedList {
       }
    }
    
-   // Remove at
-   public void removeAt(int position) {
-    if (position < 0) {
-        System.out.println("Invalid position.");
-        return;
-    }
-
-    if (position == 0) {
-        removeHead();
-        System.out.println("Node at position 0 removed.");
-        return;
-    }
-
-    Node current = head;
-    int currentPosition = 0;
-
-    while (current != null && currentPosition < position) {
-        current = current.next;
-        currentPosition++;
-    }
-
-    if (current == null) {
-        System.out.println("Invalid position.");
-    } else {
-        current.previous.next = current.next;
-        if (current.next != null) {
-            current.next.previous = current.previous;
-        } else {
-            tail = current.previous;
-        }
-        System.out.println("Node at position " + position + " removed.");
+    // Remove at
+    public void removeAt(int position) {
+      Node current = head;
+       
+      int currentPosition = 0;
+      while (current != null && currentPosition != position) {
+         current = current.next;
+         currentPosition++;
       }
-   }
+             
+      if (current != null) {
+         if (current.previous != null) {
+            current.previous.next = current.next;
+         } else {
+            // If the node to be removed is the head
+            head = current.next;
+            }
+       
+            if (current.next != null) {
+               current.next.previous = current.previous;
+            } else {
+               // If the node to be removed is the tail
+               tail = current.previous;
+               }     
+               current = null;
+               System.out.println("Node Removed");
+      }
+      else {
+            System.out.println("Node not found at position: " + position);
+           }
+    }
     
     
    
@@ -138,8 +136,8 @@ class LinkedList {
             } else {
                 tail = newNode;
               }
-        }             
+        }
+                     
     }
         
 }// Class
-
