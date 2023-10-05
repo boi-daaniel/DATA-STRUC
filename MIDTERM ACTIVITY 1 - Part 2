@@ -81,7 +81,7 @@ class LinkedList {
       }
    }
    
-    // Remove at
+    // Remove Node at
     public void removeAt(int position) {
       Node current = head;
        
