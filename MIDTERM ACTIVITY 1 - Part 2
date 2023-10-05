@@ -81,7 +81,7 @@ class LinkedList {
       }
    }
    
-    // Remove Node at
+    // Remove at
     public void removeAt(int position) {
       Node current = head;
        
@@ -131,6 +131,7 @@ class LinkedList {
             newNode.next = temp.next;
             temp.next = newNode;
             newNode.previous = temp;
+            System.out.println("Node Inserted");
             if (newNode.next != null) {
                 newNode.next.previous = newNode;
             } else {
