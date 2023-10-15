@@ -5,8 +5,8 @@ class ArrayOperations {
     int[] array;
     Scanner input = new Scanner(System.in);
 
-    public ArrayOperations(int size) {
-        array = new int[size];
+    public ArrayOperations(int MAXSIZE) {
+        array = new int[MAXSIZE];
     }
 
     public void populate(int[] myArray) {
