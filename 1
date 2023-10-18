@@ -1,0 +1,81 @@
+class Stack {
+    private char[] stackArray;
+    private int top;
+    private final int maxSize;
+
+    public Stack(int size) {
+        maxSize = size;
+        stackArray = new char[maxSize];
+        top = -1;
+    }
+
+    public void push(char element) {
+        if (top < maxSize - 1) {
+            top++;
+            stackArray[top] = element;
+        } else {
+            System.out.println("Stack is full. Cannot push more elements.");
+        }
+    }
+
+    public char pop() {
+        if (top >= 0) {
+            char poppedElement = stackArray[top];
+            top--;
+            return poppedElement;
+        } else {
+            // Handle stack underflow (stack is empty)
+            return '\0'; // Return a default value indicating empty stack
+        }
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+}
+
+// delimeter
+
+class DelimiterMatcher {
+    private Stack stack;
+
+    public DelimiterMatcher(int size) {
+        stack = new Stack(size);
+    }
+
+    public boolean isDelimiterMatched(String input) {
+        for (char ch : input.toCharArray()) {
+            if (ch == '(') {
+                stack.push(ch);
+            } else if (ch == ')') {
+                if (stack.isEmpty() || stack.pop() != '(') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+
+//test
+
+import java.util.Scanner;
+
+public class TestDelimiterMatching {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        DelimiterMatcher delimiterMatcher = new DelimiterMatcher(100);
+
+        System.out.print("Enter an expression: ");
+        String expression = scanner.nextLine();
+
+        boolean isMatched = delimiterMatcher.isDelimiterMatched(expression);
+        if (isMatched) {
+            System.out.println(expression + " - valid");
+        } else {
+            System.out.println(expression + " - invalid");
+        }
+
+        scanner.close();
+    }
+}
