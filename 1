@@ -79,3 +79,24 @@ public class TestDelimiterMatching {
         scanner.close();
     }
 }
+
+
+
+
+//
+
+public class TestDelimiter {
+    public static void main(String[] args) {
+        DelimiterMatcher delimiterMatcher = new DelimiterMatcher(100); // You can set the appropriate size for your stack.
+        String[] expressions = {"()", "(()", ")", "()", ")("};
+
+        for (String expression : expressions) {
+            boolean isMatched = delimiterMatcher.isDelimiterMatched(expression);
+            if (isMatched) {
+                System.out.println(expression + " - valid");
+            } else {
+                System.out.println(expression + " - invalid");
+            }
+        }
+    }
+}
