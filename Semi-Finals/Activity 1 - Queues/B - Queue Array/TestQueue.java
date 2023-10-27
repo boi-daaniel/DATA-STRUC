@@ -7,7 +7,7 @@ public class TestQueue {
       Scanner scanner = new Scanner(System.in);
 
       while (true) {
-         System.out.println("\n \tMENU");
+         System.out.println("\n \t(MENU)");
          System.out.println("1. Enqueue");
          System.out.println("2. Dequeue");
          System.out.println("3. Front");
@@ -15,7 +15,7 @@ public class TestQueue {
          System.out.println("5. Display");
          System.out.println("0. Exit");
 
-         System.out.print("Enter your choice: ");
+         System.out.print("\nEnter your choice: ");
          int choice = scanner.nextInt();
          System.out.println();
 
