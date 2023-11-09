@@ -27,7 +27,7 @@ public class BankCustomerQueue {
                     System.out.print("Enter customer name to add: ");
                     String customerName = scanner.nextLine();
                     customerQueue.add(customerName);
-                    System.out.println(customerName + " Added in queue");
+                    System.out.println(customerName + " Added to queue");
                     break;
                 case 'b':
                     if (!customerQueue.isEmpty()) {
@@ -41,14 +41,14 @@ public class BankCustomerQueue {
                     if (!customerQueue.isEmpty()) {
                         System.out.println("Queue Front customer: " + customerQueue.peek());
                     } else {
-                        System.out.println("No front value. Queue is empty.");
+                        System.out.println("No front customer. Queue is empty.");
                     }
                     break;
                 case 'd':
                     System.out.println("Count of Customers: " + customerQueue.size());
                     break;
                 case 'e':
-                    System.out.println("Queue Contents: " + customerQueue);
+                    System.out.println("Customer Queue: " + customerQueue);
                     break;
                 case 'f':
                     System.out.println("Exiting Program...");
