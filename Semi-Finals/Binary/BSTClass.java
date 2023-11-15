@@ -24,24 +24,28 @@ public class BSTClass extends BTClass {
         BTNode trailcurrent = null;
         if (root == null) {
             root = newNode;
-        } else {
+        } 
+        else {
             current = root;
             while (current != null) {
                 trailcurrent = current;
                 if (current.info == insertItem) {
                     System.out.println("Item already exists.");
-                } else {
+                } 
+                else {
                     if (insertItem < current.info) {
                         current = current.Llink;
-                    } else {
+                    } 
+                    else {
                         current = current.Rlink;
                     }
                 }
-                if (insertItem < trailcurrent.info) {
-                    trailcurrent.Llink = newNode;
-                } else {
-                    trailcurrent.Rlink = newNode;
-                }
+            }
+            if (insertItem < trailcurrent.info) {
+                trailcurrent.Llink = newNode;
+            } 
+            else {
+                trailcurrent.Rlink = newNode;  
             }
         }
     }
