@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class TestBSTClass {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        BSTClass bst = new BSTClass();
+        BTClass bst = new BTClass();
 
         int choice;
         do {
@@ -38,7 +38,7 @@ public class TestBSTClass {
                     bst.postorder(bst.root);
                     break;
                 case 5:
-                    System.out.println("Tree Height: " + bst.getHeight());
+                    System.out.println("Tree Height: " + bst.height());
                     break;
                 case 6:
                     System.out.println("Node Count: " + bst.getNodeCount());
@@ -63,4 +63,4 @@ public class TestBSTClass {
 
         scanner.close();
     }
-        }
+}
