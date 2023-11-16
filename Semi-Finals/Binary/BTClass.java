@@ -10,11 +10,7 @@ public class BTClass {
     }
 
     public boolean isEmpty(){
-        if (root == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return root == null;
     }
 
     public void inorder(BTNode root){
@@ -41,4 +37,47 @@ public class BTClass {
         }
     }
 
+    public int getHeight() {
+        return calculateHeight(root);
+    }
+
+    private int calculateHeight(BTNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            int leftHeight = calculateHeight(node.Llink);
+            int rightHeight = calculateHeight(node.Rlink);
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
+    }
+
+    public int getNodeCount() {
+        return countNodes(root);
+    }
+
+    private int countNodes(BTNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return 1 + countNodes(node.Llink) + countNodes(node.Rlink);
+        }
+    }
+
+    public boolean search(int value) {
+        return searchNode(root, value);
+    }
+
+    private boolean searchNode(BTNode node, int value) {
+        if (node == null) {
+            return false;
+        }
+
+        if (node.info == value) {
+            return true;
+        } else if (value < node.info) {
+            return searchNode(node.Llink, value);
+        } else {
+            return searchNode(node.Rlink, value);
+        }
+    }
 }
