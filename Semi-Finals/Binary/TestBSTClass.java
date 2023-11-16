@@ -5,7 +5,7 @@ public class TestBSTClass {
         Scanner scanner = new Scanner(System.in);
         BSTClass bst = new BSTClass();
 
-        while(true) {
+        while (true) {
             System.out.println("\nBinary Search Tree Operations:");
             System.out.println("1. Insert Node");
             System.out.println("2. Search");
@@ -15,7 +15,7 @@ public class TestBSTClass {
             System.out.println("6. Preorder Traversal");
             System.out.println("7. Postorder Traversal");
             System.out.println("0. Exit");
-            
+
             System.out.print("\nEnter your choice: ");
             int choice = scanner.nextInt();
 
@@ -27,23 +27,23 @@ public class TestBSTClass {
                     break;
                 case 2:
                     System.out.print("Enter value to search: ");
-                    int searchValue = scanner.nextInt();
-                    if (bst.search(searchValue)) {
-                        System.out.println(searchValue + " found in the tree.");
-                    } else {
-                        System.out.println(searchValue + " not found in the tree.");
-                    }
-                    break;                  
+                      int searchValue = scanner.nextInt();
+                      if (bst.search(searchValue)) {
+                          System.out.println(searchValue + " found in the tree.");
+                      } else {
+                          System.out.println(searchValue + " not found in the tree.");
+                      }
+                      break;
                 case 3:
                     System.out.println("Node Count: " + bst.getNodeCount());
-                    break;                 
+                     break;
                 case 4:
                     System.out.println("Tree Height: " + bst.height());
-                    break;                   
+                     break;
                 case 5:
                     System.out.println("Inorder Traversal:");
                     bst.inorder(bst.root);
-                    break;                
+                    break;
                 case 6:
                     System.out.println("Preorder Traversal:");
                     bst.preorder(bst.root);
@@ -51,14 +51,16 @@ public class TestBSTClass {
                 case 7:
                     System.out.println("Postorder Traversal:");
                     bst.postorder(bst.root);
-                    break;                    
+                    break;
                 case 0:
                     System.out.println("Exiting...");
+                    scanner.close(); // Close the scanner before exiting
+                    System.exit(0); // Terminate the program
                     break;
                 default:
                     System.out.println("Invalid choice. Please enter a valid option.");
                     break;
             }
-        } 
+        }
     }
 }
