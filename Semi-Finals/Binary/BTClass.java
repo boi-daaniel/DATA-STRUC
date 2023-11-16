@@ -37,16 +37,17 @@ public class BTClass {
         }
     }
 
-    public int getHeight() {
+    public int height() {
         return calculateHeight(root);
     }
 
     private int calculateHeight(BTNode node) {
         if (node == null) {
-            return 0;
+            return -1; // Base case: Height of an empty tree is -1
         } else {
             int leftHeight = calculateHeight(node.Llink);
             int rightHeight = calculateHeight(node.Rlink);
+
             return Math.max(leftHeight, rightHeight) + 1;
         }
     }
